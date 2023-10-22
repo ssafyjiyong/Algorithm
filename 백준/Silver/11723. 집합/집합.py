@@ -15,7 +15,10 @@ for _ in range(N):
     elif Order[0] == 'remove':
         S &= ~(1<<Order[1])
     elif Order[0] == 'check':
-        print(1 if S & (1 << Order[1]) else 0)
+        if S & (1 << Order[1]) == 0:
+            print(0)
+        else:
+            print(1)
     elif Order[0] == 'toggle':
         S ^= 1<<Order[1]
     elif Order[0] == 'all':
