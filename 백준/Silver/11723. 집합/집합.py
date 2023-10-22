@@ -8,19 +8,19 @@ all = (1 << 20)-1
 for _ in range(N):
     Order = list(input().split())
     if len(Order) > 1:
-        Order[1] = int(Order[1])-1
+        a = int(Order[1])-1
 
     if Order[0] == 'add':
-        S |= 1<<Order[1]
+        S |= 1<<a
     elif Order[0] == 'remove':
-        S &= ~(1<<Order[1])
+        S &= ~(1<<a)
     elif Order[0] == 'check':
-        if S & (1 << Order[1]) == 0:
+        if S & (1 << a) == 0:
             print(0)
         else:
             print(1)
     elif Order[0] == 'toggle':
-        S ^= 1<<Order[1]
+        S ^= 1<<a
     elif Order[0] == 'all':
         S = all
     else:
