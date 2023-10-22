@@ -2,22 +2,23 @@ import sys
 input = sys.stdin.readline
 
 N = int(input())
-S = set()
+S = 0
+all = (1 << 20)-1
+
 for _ in range(N):
-    Order = list(map(str, input().split()))
+    Order = list(input().split())
+    if len(Order) > 1:
+        Order[1] = int(Order[1])-1
 
     if Order[0] == 'add':
-        S.add(int(Order[1]))
-    elif Order[0] == 'remove' and int(Order[1]) in S:
-        S.remove(int(Order[1]))
+        S |= 1<<Order[1]
+    elif Order[0] == 'remove':
+        S &= ~(1<<Order[1])
     elif Order[0] == 'check':
-        print(+(int(Order[1]) in S))
+        print(1 if S & (1 << Order[1]) else 0)
     elif Order[0] == 'toggle':
-        if int(Order[1]) in S:
-            S.remove(int(Order[1]))
-        else:
-            S.add(int(Order[1]))
+        S ^= 1<<Order[1]
     elif Order[0] == 'all':
-        S = set(i for i in range(1,21))
-    elif Order[0] == 'empty':
-        S = set()
+        S = all
+    else:
+        S = 0
