@@ -6,9 +6,9 @@ function solution(answers) {
     const third = [3,3,1,1,2,2,4,4,5,5];
     
     for (let i = 0; i < answers.length; i++) {
-        first.push(first[i % answers.length])
-        second.push(second[i % answers.length])
-        third.push(third[i % answers.length])
+        first.push(first[i % first.length])
+        second.push(second[i % second.length])
+        third.push(third[i % third.length])
     };
     
     let a = 0
