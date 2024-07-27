@@ -1,13 +1,19 @@
 function solution(s) {
     const stack = [];
-
+    
     for (let L of s) {
-        if (stack.length > 0 && stack[stack.length - 1] === L) {
-            stack.pop();
+        if (stack.length === 0) {
+            stack.push(L)
         } else {
-            stack.push(L);
+            let tmpPop = stack.pop()
+            if (tmpPop === L) {
+                continue;
+            } else {
+                stack.push(tmpPop)
+                stack.push(L)
+            }
         }
     }
 
-    return stack.length === 0 ? 1 : 0;
+    return stack.length === 0? 1:0;
 }
