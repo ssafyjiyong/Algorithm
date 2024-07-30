@@ -2,7 +2,7 @@ function solution(s){
     var answer = true;
     const stack = [];
     
-    for (x of s) {
+    for (let x of s) {
         if (x==="(") {
             stack.push(x)
         } else if (x===")") {
