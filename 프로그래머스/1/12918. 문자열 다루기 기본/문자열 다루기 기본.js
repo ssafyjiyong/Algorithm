@@ -4,7 +4,7 @@ function solution(s) {
     }
     
     for (let i = 0; i < s.length; i++) {
-        if (isNaN(Number(s[i])) || s[i] === ' ') {
+        if (isNaN(Number(s[i]))) {
             return false;
         }
     }
